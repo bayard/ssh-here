@@ -2,13 +2,14 @@
   "name": "ssh-here",
   "displayName": "SSH Here",
   "description": "Connect to SSH host listed in SSH config file.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "sathis",
   "author": {
     "name": "Tharindu Sathischandra",
     "email": "tharindu.sathis@gmail.com",
     "url": "https://github.com/tharindusathis"
   },
+  "icon": "icon.png",
   "engines": {
     "vscode": "^1.81.0"
   },
