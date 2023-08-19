@@ -2,7 +2,7 @@
   "name": "ssh-here",
   "displayName": "SSH Here",
   "description": "Connect to SSH host listed in SSH config file.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "sathis",
   "author": {
     "name": "Tharindu Sathischandra",
@@ -36,6 +36,13 @@
                     "description": "Open SSH terminals in the editor area"
                 }
             }
+        }
+    ],
+    "keybindings": [
+        {
+            "command": "ssh-here.connect", 
+            "key": "ctrl+alt+s", 
+            "mac": "cmd+alt+s"
         }
     ]
   },

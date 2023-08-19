@@ -4,7 +4,9 @@ Create SSH sessions in current window.
 
 ## Features
 
-- Connect to SSH host listed in SSH config file.
+### Connect to SSH host listed in SSH config file.
+
+Run the `SSH Connect` command or use the default shortcut  `ctrl + alt + s` or `cmd + opt + s`.
 
 ## Extension Settings
 
