@@ -64,16 +64,28 @@ export function activate(context: vscode.ExtensionContext) {
             const openSSHInEditor = config.get<boolean>('openSSHInEditor', false);
             const terminalName = `${selectedRemote}`;
 
-            const terminal = vscode.window.createTerminal(
-                {
-                    name: terminalName,
-                    location: openSSHInEditor ?
-                        vscode.TerminalLocation.Editor : vscode.TerminalLocation.Panel,
-                    isTransient: true,
-                }
-            );
+            var isWin = process.platform === "win32";
+            var targetShell = process.env.COMSPEC;
+            if(isWin)
+            {
+                targetShell = "powershell.exe";
+            }
 
-            terminal.sendText(`ssh ${selectedRemote}`);
+            const terminal = vscode.window.createTerminal({
+                name: terminalName,
+                //shellPath: process.env.COMSPEC,
+                shellPath: targetShell,
+                shellArgs: [],
+                location: openSSHInEditor ?
+                    vscode.TerminalLocation.Editor : vscode.TerminalLocation.Panel,
+                isTransient: true,
+            });
+            //terminal.sendText(`ssh ${selectedRemote}`);
+            if(isWin)
+                terminal.sendText('chcp 65001', true);
+            let sshhost = selectedRemote;
+            terminal.sendText('ssh ', false);
+            terminal.sendText(sshhost, true);
             terminal.show();
         }
 
